@@ -13,28 +13,25 @@ def index(request):
     return HttpResponse(u"欢迎")
 
 
-def addMenu(request):
-    """
-    添加菜单项
-    :return:
-    """
-
-
 def getMenu(request):
     """
     获取菜单列表
     :param request:
     :return:
     """
-    menu_list = models.MenuCategory.objects.values('id', 'name', 'category_level', 'parent_category')
-    menu_list_json = json.dumps(list(menu_list), ensure_ascii=False, cls=DateEncoder)
-    print(menu_list_json)
-    return HttpResponse(menu_list_json, content_type='application/json; charset=utf-8')
+    try:
+        menu_list = models.MenuCategory.objects.values('id', 'name', 'category_level', 'parent_category')
+        menu_list_json = json.dumps(list(menu_list), ensure_ascii=False, cls=DateEncoder)
+        print(menu_list_json)
+        return CommonDealResponse.dealResult(True, json.loads(menu_list_json), "成功")
 
-    # menu_list = models.MenuCategory.objects.all()
-    # menu_list_json = serializers.serialize("json", menu_list, ensure_ascii=False)
-    # print(menu_list_json)
-    # return HttpResponse(menu_list_json, content_type='application/json; charset=utf-8')
+        # menu_list = models.MenuCategory.objects.all()
+        # menu_list_json = serializers.serialize("json", menu_list, ensure_ascii=False)
+        # print(menu_list_json)
+        # return HttpResponse(menu_list_json, content_type='application/json; charset=utf-8')
+
+    except Exception as e:
+        return CommonDealResponse.dealResult(False, {}, e)
 
 
 def getGreensList(request):
@@ -79,8 +76,18 @@ def getGreensByid(request):
     :param request:
     :return:
     """
-    greens = models.Greens.objects.get(id=1)
-    return HttpResponse(greens.toJSON(), content_type='application/json; charset=utf-8')
+    id = request.GET.get("id")
+    greens = models.Greens.objects.get(id=id)
+    if greens:
+        greensJson = json.loads(greens.toJSON())
+        # 获取该菜的所属的类别
+        category = []
+        for categoryItem in greens.category.all():
+            category.append(categoryItem.id)
+        greensJson['category'] = category
+        return CommonDealResponse.dealResult(True, greensJson, "成功")
+    else:
+        return CommonDealResponse.dealNoDateResult()
 
 
 class DateEncoder(json.JSONEncoder):
@@ -112,4 +119,11 @@ class CommonDealResponse:
             res['code'] = -1
             res['data'] = {}
             res['message'] = message
+        return HttpResponse(json.dumps(res, ensure_ascii=False), content_type='application/json; charset=utf-8')
+
+    def dealNoDateResult():
+        res = {}
+        res['code'] = 2
+        res['data'] = {}
+        res['message'] = '暂无数据'
         return HttpResponse(json.dumps(res, ensure_ascii=False), content_type='application/json; charset=utf-8')

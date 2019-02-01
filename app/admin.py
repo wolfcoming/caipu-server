@@ -1,6 +1,6 @@
 from django.contrib import admin
 from app.models import MenuCategory
-from app.models import Greens
+from app.models import Greens, Banner
 
 
 # Register your models here.
@@ -10,6 +10,10 @@ class MenuAdmin(admin.ModelAdmin):
     # list_per_page设置每页显示多少条记录，默认是100条
     list_per_page = 50
 
+
+@admin.register(Banner)
+class BannerAdmin(admin.ModelAdmin):
+    list_display = ('category', 'img', 'index')
 
 
 @admin.register(Greens)
@@ -32,7 +36,7 @@ class GreensAdmin(admin.ModelAdmin):
 
     # 筛选器
     list_filter = ('name', 'views', 'collect', 'category')
-    search_fields = ('name','views', 'collect', 'category')
+    search_fields = ('name', 'views', 'collect', 'category')
 
     # Many to many 字段
     filter_horizontal = ('category',)

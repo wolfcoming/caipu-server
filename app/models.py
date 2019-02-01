@@ -73,3 +73,19 @@ class Greens(models.Model):
 
         import json
         return json.dumps(d, ensure_ascii=False)
+
+
+class Banner(models.Model):
+    """
+    banner条数据
+    """
+    category = models.ForeignKey(MenuCategory, on_delete=models.CASCADE, verbose_name="类别", help_text="类别")
+    img = models.CharField(default="", max_length=200, verbose_name="图片地址", help_text="图片地址")
+    index = models.IntegerField(default=0, verbose_name="轮播顺序")
+
+    class Meta:
+        verbose_name = '轮播类'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.category.name

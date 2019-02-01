@@ -7,7 +7,6 @@ import datetime
 from django.core.paginator import Paginator, EmptyPage
 
 
-# Create your views here.
 def index(request):
     return HttpResponse(u"欢迎")
 
@@ -165,6 +164,18 @@ def getGreensByid(request):
         return CommonDealResponse.dealResult(True, greensJson, "成功")
     else:
         return CommonDealResponse.dealNoDateResult()
+
+
+def getBannerData(request):
+    lists = models.Banner.objects.all()
+    result = []
+    for item in lists:
+        dic = {}
+        dic['name'] = item.category.name
+        dic['img'] = item.img
+        dic['category_id'] = item.category.id
+        result.append(dic)
+    return CommonDealResponse.dealResult(True, result, "请求成功")
 
 
 class DateEncoder(json.JSONEncoder):

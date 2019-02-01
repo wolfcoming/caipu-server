@@ -25,4 +25,5 @@ urlpatterns = [
     path(r'getGreensByid/', app_views.getGreensByid),
     path(r'addMenu/', app_views.addMenu),
     path(r'search/', app_views.search),
+    path(r'getBannerData/', app_views.getBannerData),
 ]

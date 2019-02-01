@@ -22,5 +22,7 @@ urlpatterns = [
     path('', app_views.index),
     path(r'getMenu/', app_views.getMenu),
     path(r'getGreensList/', app_views.getGreensList),
-    path(r'getGreensByid/', app_views.getGreensByid)
+    path(r'getGreensByid/', app_views.getGreensByid),
+    path(r'addMenu/', app_views.addMenu),
+    path(r'search/', app_views.search),
 ]

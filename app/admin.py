@@ -6,7 +6,7 @@ from app.models import Greens
 # Register your models here.
 @admin.register(MenuCategory)
 class MenuAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'brief', 'category_level', 'parent_category_id', 'add_time')
+    list_display = ('id', 'name', 'brief', 'category_level', 'category_way', 'parent_category_id', 'add_time')
     # list_per_page设置每页显示多少条记录，默认是100条
     list_per_page = 50
 

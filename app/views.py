@@ -12,6 +12,20 @@ def index(request):
     return HttpResponse(u"欢迎")
 
 
+def addMenu(request):
+    """
+    添加菜单
+    :param request:
+    :return:
+    """
+    parent_category = models.MenuCategory.objects.get(id=1)
+    result = models.MenuCategory(name="凉菜", brief="凉菜",
+                                 category_level=2, category_way=1,
+                                 parent_category=parent_category).save()
+    print(result)
+    return HttpResponse(result)
+
+
 def getMenu(request):
     """
     获取菜单列表
@@ -19,7 +33,14 @@ def getMenu(request):
     :return:
     """
     try:
-        menu_list = models.MenuCategory.objects.values('id', 'name', 'category_level', 'parent_category')
+        category_way = request.GET.get('category_way')
+        menu_list = []
+        if category_way:
+            menu_list = models.MenuCategory.objects.filter(category_way=category_way).values('id', 'name',
+                                                                                             'category_level',
+                                                                                             'parent_category')
+        else:
+            menu_list = models.MenuCategory.objects.values('id', 'name', 'category_level', 'parent_category')
         menu_list_json = json.dumps(list(menu_list), ensure_ascii=False, cls=DateEncoder)
         print(menu_list_json)
         return CommonDealResponse.dealResult(True, json.loads(menu_list_json), "成功")
@@ -45,7 +66,8 @@ def getGreensList(request):
         # defer 过滤某些不需要的字段
         # prefetch_related 是优化关联查询
         # prefetch_related是通过再执行一条额外的SQL语句，然后用 Python 把两次SQL查询的内容关联（joining)到一起
-        templist = models.Greens.objects.defer("brief", "tips", "makes").prefetch_related('category').all().order_by('id')
+        templist = models.Greens.objects.defer("brief", "tips", "makes").prefetch_related('category').all().order_by(
+            'id')
         if pageSize == None or pageNumber == None:
             return CommonDealResponse.dealNoParamResult(pageSize + "_" + pageNumber)
         else:
@@ -73,6 +95,47 @@ def getGreensList(request):
     except:
         CommonDealResponse.dealResult(False, {}, "请求失败")
 
+
+def search(request):
+    """
+    搜索菜
+    :param request:
+    :return:
+    """
+    try:
+        pageSize = request.GET.get("pageSize")
+        pageNumber = request.GET.get("pageNumber")
+        name = request.GET.get("name")
+
+        if pageSize == None or pageNumber == None or name == None:
+            return CommonDealResponse.dealNoParamResult("参数缺失")
+        else:
+            templist = models.Greens.objects.defer("brief", "tips", "makes") \
+                .filter(name__contains=name).all().order_by(
+                'views')
+            paginator = Paginator(templist, pageSize)
+            try:
+                templist = paginator.page(pageNumber).object_list
+            except EmptyPage:
+                return CommonDealResponse.dealResult(True, [], "无数据")
+            result = []
+            for tem in templist:
+                dic = {}
+                dic['name'] = tem.name
+                dic['id'] = tem.id
+                dic['views'] = tem.views
+                dic['collect'] = tem.collect
+
+                # 调用改方法会再次执行数据库查询 若不需要 就别查询  如果使用 可以使用prefetch_related 进行优化
+                category = []
+                for categoryItem in tem.category.all():
+                    category.append(categoryItem.id)
+                dic['category'] = category
+
+                result.append(dic)
+            return CommonDealResponse.dealResult(True, result, "请求成功")
+    except Exception:
+        return CommonDealResponse.dealResult(False, {}, "请求失败")
 
 
 def getGreensByid(request):

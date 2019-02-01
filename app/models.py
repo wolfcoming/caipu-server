@@ -15,9 +15,16 @@ class MenuCategory(models.Model):
         (3, "三级类目"),
     )
 
+    # 菜单的分类方式
+    CATEGORY_WAY = (
+        (1, "分类"),
+        (2, "食材"),
+    )
+
     name = models.CharField(default="", max_length=30, verbose_name="类别名", help_text="类别名")
     brief = models.CharField(default="", max_length=200, verbose_name="简短介绍", help_text="简短介绍")  # 简单介绍
     category_level = models.IntegerField(choices=CATEGORY_LEVEL, verbose_name="类目级别", help_text="类目级别")
+    category_way = models.IntegerField(choices=CATEGORY_WAY, verbose_name="分类方式", help_text="分类方式")
     parent_category = models.ForeignKey("self", null=True, verbose_name="父类别", blank=True,
                                         related_name="sub_cat", on_delete=models.SET_NULL)
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")

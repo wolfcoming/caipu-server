@@ -116,7 +116,7 @@ def getGreensListByCategory(request):
         return CommonDealResponse.dealResult(True, [], "无数据")
     result = []
     for item in list:
-        dic={}
+        dic = {}
         dic['id'] = item.id
         dic['name'] = item.name
         dic['img'] = item.img
@@ -181,8 +181,14 @@ def getGreensByid(request):
     id = params.get("id")
     if id == None:
         return CommonDealResponse.dealNoParamResult('id')
-
     greens = models.Greens.objects.filter(id=id).first()
+
+    #更新浏览量
+    views = greens.views
+    views += 1
+    greens.views = views
+    greens.save()
+
     if greens:
         greensJson = json.loads(greens.toJSON())
         # 获取该菜的所属的类别

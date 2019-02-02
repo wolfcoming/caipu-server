@@ -48,6 +48,7 @@ class Greens(models.Model):
     collect = models.IntegerField(default=0, verbose_name="收藏量", help_text="收藏量")
     makes = models.CharField(default="", max_length=1000, verbose_name="步骤", help_text="步骤")
     burden = models.CharField(default="", max_length=1000, verbose_name="用料", help_text="用料")
+    img = models.CharField(default="", blank=True, null=True, max_length=200, verbose_name="封面图", help_text="封面图")
     category = models.ManyToManyField(to=MenuCategory, verbose_name="类别", help_text="类别")
 
     class Meta:

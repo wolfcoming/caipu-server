@@ -68,7 +68,7 @@ def getGreensList(request):
         templist = models.Greens.objects.defer("brief", "tips", "makes").prefetch_related('category').all().order_by(
             'id')
         if pageSize == None or pageNumber == None:
-            return CommonDealResponse.dealNoParamResult(pageSize + "_" + pageNumber)
+            return CommonDealResponse.dealNoParamResult("pageSize or pageNumber")
         else:
             paginator = Paginator(templist, pageSize)
             try:
@@ -93,6 +93,35 @@ def getGreensList(request):
             return CommonDealResponse.dealResult(True, result, "请求成功")
     except:
         CommonDealResponse.dealResult(False, {}, "请求失败")
+
+
+def getGreensListByCategory(request):
+    """
+    获取菜单下的所有菜品
+    :param request:
+    :return:
+    """
+    categoryId = request.GET.get("categoryid")
+    pageSize = request.GET.get("pageSize")
+    pageNumber = request.GET.get("pageNumber")
+    if pageSize == None or pageNumber == None or categoryId == None:
+        return CommonDealResponse.dealNoParamResult("categoryId or pageSize or pageNumber")
+
+    category = models.MenuCategory.objects.get(id=categoryId)
+    list = models.Greens.objects.filter(category=category).order_by('views')
+    try:
+        paginator = Paginator(list, pageSize)
+        list = paginator.page(pageNumber).object_list
+    except EmptyPage:
+        return CommonDealResponse.dealResult(True, [], "无数据")
+    result = []
+    for item in list:
+        dic={}
+        dic['id'] = item.id
+        dic['name'] = item.name
+        dic['img'] = item.img
+        result.append(dic)
+    return CommonDealResponse.dealResult(True, result, "请求成功")
 
 
 def search(request):

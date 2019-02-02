@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7e8fd502-8d39-41eb-975e-fcd59fb7758a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/caipu/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/caipu/urls.py" afterDir="false" />
@@ -20,35 +19,24 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="113" column="16" selection-start-line="113" selection-start-column="16" selection-end-line="113" selection-end-column="16" />
+            <state relative-caret-position="254">
+              <caret line="122" column="24" lean-forward="true" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
               <folding>
-                <element signature="e#260#286#0" />
-                <element signature="e#315#674#0" />
-                <element signature="e#315#368#1" />
-                <element signature="e#703#1887#0" />
-                <element signature="e#703#758#1" />
-                <element signature="e#776#1800#0" />
-                <element signature="e#883#1200#0" />
-                <element signature="e#1539#1586#0" />
-                <element signature="e#1922#1956#1" />
-                <element signature="e#2072#2080#0" />
-                <element signature="e#2521#3353#0" />
-                <element signature="e#2819#3282#0" />
-                <element signature="e#3457#4167#0" />
-                <element signature="e#3457#3511#1" />
-                <element signature="e#3814#4104#0" />
-                <element signature="e#4211#4514#0" />
-                <element signature="e#4211#4239#1" />
-                <element signature="e#4275#4514#0" />
-                <element signature="e#4547#5475#0" />
-                <element signature="e#4547#4570#1" />
-                <element signature="e#4628#4978#0" />
-                <element signature="e#4671#4756#0" />
-                <element signature="e#4783#4865#0" />
-                <element signature="e#5016#5218#0" />
-                <element signature="e#5262#5475#0" />
+                <element signature="e#677#1861#0" />
+                <element signature="e#3424#4864#0" />
+                <element signature="e#4899#5609#0" />
+                <element signature="e#5644#5942#0" />
+                <element signature="e#6050#6289#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/caipu/wsgi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="15" column="34" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -56,11 +44,42 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
+            <state relative-caret-position="132">
               <caret line="46" column="9" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="9" />
               <folding>
                 <element signature="e#24#43#0" expanded="true" />
+                <element signature="e#2109#2674#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deletion.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../pythonVirtualenv/caipu/lib/python3.6/site-packages/django/db/models/deletion.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="888">
+              <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="related.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../pythonVirtualenv/caipu/lib/python3.6/site-packages/django/db/models/fields/related.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="8304">
+              <caret line="376" column="13" selection-start-line="376" selection-start-column="13" selection-end-line="376" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -68,8 +87,8 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/caipu/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+            <state relative-caret-position="390">
+              <caret line="28" column="58" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
               <folding>
                 <element signature="e#629#661#0" expanded="true" />
               </folding>
@@ -89,8 +108,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/caipu/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+            <state relative-caret-position="3528">
+              <caret line="147" column="6" selection-start-line="147" selection-start-column="6" selection-end-line="147" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -117,17 +136,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/caipu/settings.py" />
-        <option value="$PROJECT_DIR$/app/models.py" />
         <option value="$PROJECT_DIR$/app/admin.py" />
+        <option value="$PROJECT_DIR$/caipu/settings.py" />
         <option value="$PROJECT_DIR$/caipu/urls.py" />
+        <option value="$PROJECT_DIR$/app/models.py" />
         <option value="$PROJECT_DIR$/app/views.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="31" />
-    <option name="y" value="32" />
+    <option name="x" value="13" />
+    <option name="y" value="22" />
     <option name="width" value="1440" />
     <option name="height" value="791" />
   </component>
@@ -137,7 +156,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -159,6 +177,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -222,22 +241,36 @@
       <option name="project" value="LOCAL" />
       <updated>1548921835147</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="搜索">
+      <created>1548992787597</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1548992787597</updated>
+    </task>
+    <task id="LOCAL-00004" summary="获取banner">
+      <created>1549003642099</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1549003642099</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="791" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24947146" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17970401" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3299712" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.21902017" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39913544" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.22766571" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.23487031" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -249,22 +282,22 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.4870317" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -273,67 +306,49 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="获取详情" />
     <MESSAGE value="分页" />
-    <option name="LAST_COMMIT_MESSAGE" value="分页" />
+    <MESSAGE value="搜索" />
+    <MESSAGE value="获取banner" />
+    <option name="LAST_COMMIT_MESSAGE" value="获取banner" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app/views.py</url>
-          <line>156</line>
+          <line>184</line>
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/views.py</url>
+          <line>103</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app/views.py</url>
+          <line>229</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="2" />
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/caipu/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="24" column="51" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="51" />
-          <folding>
-            <element signature="e#629#661#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../pythonVirtualenv/caipu/lib/python3.6/site-packages/django/db/models/query.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8640">
-          <caret line="384" column="8" selection-start-line="384" selection-start-column="8" selection-end-line="384" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
           <folding>
-            <element signature="e#260#286#0" />
-            <element signature="e#315#674#0" />
-            <element signature="e#315#368#1" />
-            <element signature="e#703#1887#0" />
-            <element signature="e#703#758#1" />
-            <element signature="e#776#1800#0" />
-            <element signature="e#883#1200#0" />
-            <element signature="e#1539#1586#0" />
-            <element signature="e#1922#1956#1" />
-            <element signature="e#2072#2080#0" />
-            <element signature="e#2521#3353#0" />
-            <element signature="e#2819#3282#0" />
-            <element signature="e#3457#4167#0" />
-            <element signature="e#3457#3511#1" />
-            <element signature="e#3814#4104#0" />
-            <element signature="e#4211#4514#0" />
-            <element signature="e#4211#4239#1" />
-            <element signature="e#4275#4514#0" />
-            <element signature="e#4547#5475#0" />
-            <element signature="e#4547#4570#1" />
-            <element signature="e#4628#4978#0" />
-            <element signature="e#4671#4756#0" />
-            <element signature="e#4783#4865#0" />
-            <element signature="e#5016#5218#0" />
-            <element signature="e#5262#5475#0" />
+            <element signature="e#677#1861#0" />
+            <element signature="e#3424#4864#0" />
+            <element signature="e#4899#5609#0" />
+            <element signature="e#5644#5942#0" />
+            <element signature="e#6050#6289#0" />
           </folding>
         </state>
       </provider>
@@ -372,6 +387,7 @@
           <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
           <folding>
             <element signature="e#24#43#0" expanded="true" />
+            <element signature="e#2109#2674#0" />
           </folding>
         </state>
       </provider>
@@ -405,31 +421,11 @@
         <state relative-caret-position="864">
           <caret line="42" column="12" lean-forward="true" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
           <folding>
-            <element signature="e#260#286#0" />
-            <element signature="e#315#674#0" />
-            <element signature="e#315#368#1" />
-            <element signature="e#703#1887#0" />
-            <element signature="e#703#758#1" />
-            <element signature="e#776#1800#0" />
-            <element signature="e#883#1200#0" />
-            <element signature="e#1539#1586#0" />
-            <element signature="e#1922#1956#1" />
-            <element signature="e#2072#2080#0" />
-            <element signature="e#2521#3353#0" />
-            <element signature="e#2819#3282#0" />
-            <element signature="e#3457#4167#0" />
-            <element signature="e#3457#3511#1" />
-            <element signature="e#3814#4104#0" />
-            <element signature="e#4211#4514#0" />
-            <element signature="e#4211#4239#1" />
-            <element signature="e#4275#4514#0" />
-            <element signature="e#4547#5475#0" />
-            <element signature="e#4547#4570#1" />
-            <element signature="e#4628#4978#0" />
-            <element signature="e#4671#4756#0" />
-            <element signature="e#4783#4865#0" />
-            <element signature="e#5016#5218#0" />
-            <element signature="e#5262#5475#0" />
+            <element signature="e#677#1861#0" />
+            <element signature="e#3424#4864#0" />
+            <element signature="e#4899#5609#0" />
+            <element signature="e#5644#5942#0" />
+            <element signature="e#6050#6289#0" />
           </folding>
         </state>
       </provider>
@@ -468,6 +464,7 @@
           <caret line="40" column="41" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="41" />
           <folding>
             <element signature="e#24#43#0" expanded="true" />
+            <element signature="e#2109#2674#0" />
           </folding>
         </state>
       </provider>
@@ -516,6 +513,7 @@
           <caret line="42" column="12" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="12" />
           <folding>
             <element signature="e#24#43#0" expanded="true" />
+            <element signature="e#2109#2674#0" />
           </folding>
         </state>
       </provider>
@@ -570,31 +568,11 @@
         <state relative-caret-position="96">
           <caret line="4" column="35" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="35" />
           <folding>
-            <element signature="e#260#286#0" />
-            <element signature="e#315#674#0" />
-            <element signature="e#315#368#1" />
-            <element signature="e#703#1887#0" />
-            <element signature="e#703#758#1" />
-            <element signature="e#776#1800#0" />
-            <element signature="e#883#1200#0" />
-            <element signature="e#1539#1586#0" />
-            <element signature="e#1922#1956#1" />
-            <element signature="e#2072#2080#0" />
-            <element signature="e#2521#3353#0" />
-            <element signature="e#2819#3282#0" />
-            <element signature="e#3457#4167#0" />
-            <element signature="e#3457#3511#1" />
-            <element signature="e#3814#4104#0" />
-            <element signature="e#4211#4514#0" />
-            <element signature="e#4211#4239#1" />
-            <element signature="e#4275#4514#0" />
-            <element signature="e#4547#5475#0" />
-            <element signature="e#4547#4570#1" />
-            <element signature="e#4628#4978#0" />
-            <element signature="e#4671#4756#0" />
-            <element signature="e#4783#4865#0" />
-            <element signature="e#5016#5218#0" />
-            <element signature="e#5262#5475#0" />
+            <element signature="e#677#1861#0" />
+            <element signature="e#3424#4864#0" />
+            <element signature="e#4899#5609#0" />
+            <element signature="e#5644#5942#0" />
+            <element signature="e#6050#6289#0" />
           </folding>
         </state>
       </provider>
@@ -616,13 +594,6 @@
           <folding>
             <element signature="e#629#661#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/caipu/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="15" column="34" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -696,44 +667,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/caipu/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="46" column="9" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="9" />
-          <folding>
-            <element signature="e#24#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/caipu/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-          <folding>
-            <element signature="e#629#661#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -744,36 +681,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../../pythonVirtualenv/caipu/lib/python3.6/site-packages/django/db/models/fields/related.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8304">
+          <caret line="376" column="13" selection-start-line="376" selection-start-column="13" selection-end-line="376" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../pythonVirtualenv/caipu/lib/python3.6/site-packages/django/db/models/deletion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="888">
+          <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/caipu/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3528">
+          <caret line="147" column="6" selection-start-line="147" selection-start-column="6" selection-end-line="147" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/caipu/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/caipu/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="28" column="58" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
+          <folding>
+            <element signature="e#629#661#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="46" column="9" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="9" />
+          <folding>
+            <element signature="e#24#43#0" expanded="true" />
+            <element signature="e#2109#2674#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="113" column="16" selection-start-line="113" selection-start-column="16" selection-end-line="113" selection-end-column="16" />
+        <state relative-caret-position="254">
+          <caret line="122" column="24" lean-forward="true" selection-start-line="122" selection-start-column="24" selection-end-line="122" selection-end-column="24" />
           <folding>
-            <element signature="e#260#286#0" />
-            <element signature="e#315#674#0" />
-            <element signature="e#315#368#1" />
-            <element signature="e#703#1887#0" />
-            <element signature="e#703#758#1" />
-            <element signature="e#776#1800#0" />
-            <element signature="e#883#1200#0" />
-            <element signature="e#1539#1586#0" />
-            <element signature="e#1922#1956#1" />
-            <element signature="e#2072#2080#0" />
-            <element signature="e#2521#3353#0" />
-            <element signature="e#2819#3282#0" />
-            <element signature="e#3457#4167#0" />
-            <element signature="e#3457#3511#1" />
-            <element signature="e#3814#4104#0" />
-            <element signature="e#4211#4514#0" />
-            <element signature="e#4211#4239#1" />
-            <element signature="e#4275#4514#0" />
-            <element signature="e#4547#5475#0" />
-            <element signature="e#4547#4570#1" />
-            <element signature="e#4628#4978#0" />
-            <element signature="e#4671#4756#0" />
-            <element signature="e#4783#4865#0" />
-            <element signature="e#5016#5218#0" />
-            <element signature="e#5262#5475#0" />
+            <element signature="e#677#1861#0" />
+            <element signature="e#3424#4864#0" />
+            <element signature="e#4899#5609#0" />
+            <element signature="e#5644#5942#0" />
+            <element signature="e#6050#6289#0" />
           </folding>
         </state>
       </provider>

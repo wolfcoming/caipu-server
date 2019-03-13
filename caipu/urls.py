@@ -28,4 +28,5 @@ urlpatterns = [
     path(r'getBannerData/', app_views.getBannerData),
     path(r'getGreensListByCategory/', app_views.getGreensListByCategory),
     path(r'qntoken/', app_views.qntoken),
+    path(r'addCaipu/', app_views.addCaipu),
 ]

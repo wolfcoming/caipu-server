@@ -1,14 +1,14 @@
 # coding:utf-8
 from django.http import HttpResponse, JsonResponse
-from django.views.decorators.http import require_GET
-
+from django.views.decorators.http import require_GET, require_POST
 from app import models
-from django.core import serializers
 import json
 import datetime
 from django.core.paginator import Paginator, EmptyPage
 import qiniu
 
+from app.decorator.common import CommonDealResponse
+from app.decorator.mydecorator import *
 from caipu.settings import QINIU_ACCESS_KEY, QINIU_SECRET_KEY, QINIU_BUCKET_NAME
 
 
@@ -32,9 +32,33 @@ def index(request):
     return HttpResponse(u"欢迎")
 
 
+
+
+
+@My_Get
+def addCaipu(request):
+    try:
+        greens = models.Greens()
+        greens.name = "测试菜名"
+        greens.brief = "测试简短介绍"
+        greens.tips = "小贴士"
+        greens.views = 10
+        greens.collect = 20
+        greens.makes = "做饭步骤"
+        greens.burden = "测试食材"
+        greens.img = "http://www.baidu.com"
+        greens.save()
+        return CommonDealResponse.dealResult(True, "请求成功", "success")
+    except Exception as e:
+        return CommonDealResponse.dealResult(False, str(e), "fail")
+
+
+
+
+
 def addMenu(request):
     """
-    添加菜单
+    添加菜单 ：测试使用
     :param request:
     :return:
     """
@@ -250,33 +274,4 @@ class DateEncoder(json.JSONEncoder):
             return json.JSONDecoder.default(self, o)
 
 
-class CommonDealResponse:
-    """
-    统一处理返回值
-    """
 
-    def dealResult(isSuccess, result, message):
-        res = {}
-        if isSuccess:
-            res['code'] = 1
-            res['data'] = result
-            res['message'] = message
-        else:
-            res['code'] = -1
-            res['data'] = {}
-            res['message'] = message
-        return HttpResponse(json.dumps(res, ensure_ascii=False), content_type='application/json; charset=utf-8')
-
-    def dealNoDateResult():
-        res = {}
-        res['code'] = 2
-        res['data'] = {}
-        res['message'] = '暂无数据'
-        return HttpResponse(json.dumps(res, ensure_ascii=False), content_type='application/json; charset=utf-8')
-
-    def dealNoParamResult(param):
-        res = {}
-        res['code'] = 3
-        res['data'] = {}
-        res['message'] = param + '  参数找不到'
-        return HttpResponse(json.dumps(res, ensure_ascii=False), content_type='application/json; charset=utf-8')

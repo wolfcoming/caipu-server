@@ -27,4 +27,5 @@ urlpatterns = [
     path(r'search/', app_views.search),
     path(r'getBannerData/', app_views.getBannerData),
     path(r'getGreensListByCategory/', app_views.getGreensListByCategory),
+    path(r'qntoken/', app_views.qntoken),
 ]

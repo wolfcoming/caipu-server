@@ -1,10 +1,31 @@
 # coding:utf-8
 from django.http import HttpResponse, JsonResponse
+from django.views.decorators.http import require_GET
+
 from app import models
 from django.core import serializers
 import json
 import datetime
 from django.core.paginator import Paginator, EmptyPage
+import qiniu
+
+from caipu.settings import QINIU_ACCESS_KEY, QINIU_SECRET_KEY, QINIU_BUCKET_NAME
+
+
+@require_GET
+def qntoken(request):
+    """
+    获取七牛token
+    :param request:
+    :return:
+    """
+    access_key = QINIU_ACCESS_KEY
+    secret_key = QINIU_SECRET_KEY
+    q = qiniu.Auth(access_key, secret_key)
+
+    bucket = QINIU_BUCKET_NAME  # 七牛云的存储空间名
+    token = q.upload_token(bucket)
+    return CommonDealResponse.dealResult(True, token, "获取成功")
 
 
 def index(request):
@@ -32,6 +53,8 @@ def getMenu(request):
     :return:
     """
     try:
+        import time
+        # time.sleep(6)
         category_way = request.GET.get('category_way')
         menu_list = []
         if category_way:
@@ -183,7 +206,7 @@ def getGreensByid(request):
         return CommonDealResponse.dealNoParamResult('id')
     greens = models.Greens.objects.filter(id=id).first()
 
-    #更新浏览量
+    # 更新浏览量
     views = greens.views
     views += 1
     greens.views = views

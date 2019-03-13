@@ -27,7 +27,8 @@ class MenuCategory(models.Model):
     category_way = models.IntegerField(choices=CATEGORY_WAY, verbose_name="分类方式", help_text="分类方式")
     parent_category = models.ForeignKey("self", null=True, verbose_name="父类别", blank=True,
                                         related_name="sub_cat", on_delete=models.SET_NULL)
-    add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
+    add_time = models.DateTimeField(default=datetime.now, null=True, blank=True, verbose_name="添加时间")
+    islast_level = models.BooleanField(default=False, verbose_name="是否是最后级别", help_text="是否是最后级别")
 
     class Meta:
         verbose_name = "菜单类别"
@@ -46,8 +47,8 @@ class Greens(models.Model):
     tips = models.CharField(default="", max_length=200, verbose_name="小贴士", help_text="小贴士")
     views = models.IntegerField(default=0, verbose_name="浏览量", help_text="浏览量")
     collect = models.IntegerField(default=0, verbose_name="收藏量", help_text="收藏量")
-    makes = models.CharField(default="", max_length=1000, verbose_name="步骤", help_text="步骤")
-    burden = models.CharField(default="", max_length=1000, verbose_name="用料", help_text="用料")
+    makes = models.CharField(default="", max_length=10000, verbose_name="步骤", help_text="步骤")
+    burden = models.CharField(default="", max_length=10000, verbose_name="用料", help_text="用料")
     img = models.CharField(default="", blank=True, null=True, max_length=200, verbose_name="封面图", help_text="封面图")
     category = models.ManyToManyField(to=MenuCategory, verbose_name="类别", help_text="类别")
 

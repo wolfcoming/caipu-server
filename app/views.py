@@ -12,7 +12,7 @@ from app.decorator.mydecorator import *
 from caipu.settings import QINIU_ACCESS_KEY, QINIU_SECRET_KEY, QINIU_BUCKET_NAME
 
 
-@require_GET
+@My_Get
 def qntoken(request):
     """
     获取七牛token
@@ -32,28 +32,23 @@ def index(request):
     return HttpResponse(u"欢迎")
 
 
-
-
-
-@My_Get
+@My_Post
 def addCaipu(request):
     try:
+        body = json.loads(request.body)
         greens = models.Greens()
-        greens.name = "测试菜名"
-        greens.brief = "测试简短介绍"
-        greens.tips = "小贴士"
-        greens.views = 10
-        greens.collect = 20
-        greens.makes = "做饭步骤"
-        greens.burden = "测试食材"
-        greens.img = "http://www.baidu.com"
+        greens.name = body['name']
+        greens.brief = body['brief']
+        greens.tips = body['tips']
+        greens.views = body['views']
+        greens.collect = body['collect']
+        greens.makes = body['makes']
+        greens.burden = body['burden']
+        greens.img = body['img']
         greens.save()
         return CommonDealResponse.dealResult(True, "请求成功", "success")
     except Exception as e:
         return CommonDealResponse.dealResult(False, str(e), "fail")
-
-
-
 
 
 def addMenu(request):
@@ -69,7 +64,7 @@ def addMenu(request):
     print(result)
     return HttpResponse(result)
 
-
+@My_Get
 def getMenu(request):
     """
     获取菜单列表
@@ -99,49 +94,7 @@ def getMenu(request):
     except Exception as e:
         return CommonDealResponse.dealResult(False, {}, e)
 
-
-def getGreensList(request):
-    """
-    获取菜列表
-    :return:
-    """
-    try:
-        pageSize = request.GET.get("pageSize")
-        pageNumber = request.GET.get("pageNumber")
-        # 手动解析数据
-        # defer 过滤某些不需要的字段
-        # prefetch_related 是优化关联查询
-        # prefetch_related是通过再执行一条额外的SQL语句，然后用 Python 把两次SQL查询的内容关联（joining)到一起
-        templist = models.Greens.objects.defer("brief", "tips", "makes").prefetch_related('category').all().order_by(
-            'id')
-        if pageSize == None or pageNumber == None:
-            return CommonDealResponse.dealNoParamResult("pageSize or pageNumber")
-        else:
-            paginator = Paginator(templist, pageSize)
-            try:
-                templist = paginator.page(pageNumber).object_list
-            except EmptyPage:
-                return CommonDealResponse.dealResult(True, [], "无数据")
-            result = []
-            for tem in templist:
-                dic = {}
-                dic['name'] = tem.name
-                dic['id'] = tem.id
-                dic['views'] = tem.views
-                dic['collect'] = tem.collect
-
-                # 调用改方法会再次执行数据库查询 若不需要 就别查询  如果使用 可以使用prefetch_related 进行优化
-                category = []
-                for categoryItem in tem.category.all():
-                    category.append(categoryItem.id)
-                dic['category'] = category
-
-                result.append(dic)
-            return CommonDealResponse.dealResult(True, result, "请求成功")
-    except:
-        CommonDealResponse.dealResult(False, {}, "请求失败")
-
-
+@My_Get
 def getGreensListByCategory(request):
     """
     获取菜单下的所有菜品
@@ -169,7 +122,6 @@ def getGreensListByCategory(request):
         dic['img'] = item.img
         result.append(dic)
     return CommonDealResponse.dealResult(True, result, "请求成功")
-
 
 def search(request):
     """
@@ -200,7 +152,8 @@ def search(request):
                 dic['id'] = tem.id
                 dic['views'] = tem.views
                 dic['collect'] = tem.collect
-
+                dic['burden'] = tem.burden
+                dic['img'] = tem.img
                 # 调用改方法会再次执行数据库查询 若不需要 就别查询  如果使用 可以使用prefetch_related 进行优化
                 category = []
                 for categoryItem in tem.category.all():
@@ -212,7 +165,7 @@ def search(request):
     except Exception:
         return CommonDealResponse.dealResult(False, {}, "请求失败")
 
-
+@My_Get
 def getGreensByid(request):
     """
     获取菜详情
@@ -272,6 +225,3 @@ class DateEncoder(json.JSONEncoder):
             return o.strftime("%Y-%m-%d")
         else:
             return json.JSONDecoder.default(self, o)
-
-
-

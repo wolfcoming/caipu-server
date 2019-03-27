@@ -1,15 +1,14 @@
 # coding:utf-8
-from django.http import HttpResponse, JsonResponse
-from django.views.decorators.http import require_GET, require_POST
+from django.http import HttpResponse
 from app import models
 import json
 import datetime
 from django.core.paginator import Paginator, EmptyPage
 import qiniu
 
-from app.decorator.common import CommonDealResponse
-from app.decorator.mydecorator import *
 from caipu.settings import QINIU_ACCESS_KEY, QINIU_SECRET_KEY, QINIU_BUCKET_NAME
+from decorator.common import CommonDealResponse
+from decorator.mydecorator import My_Get, My_Post
 
 
 @My_Get
@@ -35,6 +34,8 @@ def index(request):
 @My_Post
 def addCaipu(request):
     try:
+        # import time
+        # time.sleep(5)
         body = json.loads(request.body)
         greens = models.Greens()
         greens.name = body['name']
@@ -64,6 +65,7 @@ def addMenu(request):
     print(result)
     return HttpResponse(result)
 
+
 @My_Get
 def getMenu(request):
     """
@@ -73,7 +75,7 @@ def getMenu(request):
     """
     try:
         import time
-        # time.sleep(6)
+        time.sleep(6)
         category_way = request.GET.get('category_way')
         menu_list = []
         if category_way:
@@ -93,6 +95,7 @@ def getMenu(request):
 
     except Exception as e:
         return CommonDealResponse.dealResult(False, {}, e)
+
 
 @My_Get
 def getGreensListByCategory(request):
@@ -123,6 +126,7 @@ def getGreensListByCategory(request):
         result.append(dic)
     return CommonDealResponse.dealResult(True, result, "请求成功")
 
+
 def search(request):
     """
     搜索菜
@@ -130,6 +134,8 @@ def search(request):
     :return:
     """
     try:
+        # import time
+        # time.sleep(3)
         pageSize = request.GET.get("pageSize")
         pageNumber = request.GET.get("pageNumber")
         name = request.GET.get("name")
@@ -164,6 +170,7 @@ def search(request):
             return CommonDealResponse.dealResult(True, result, "请求成功")
     except Exception:
         return CommonDealResponse.dealResult(False, {}, "请求失败")
+
 
 @My_Get
 def getGreensByid(request):

@@ -1,4 +1,4 @@
-from app.decorator.common import CommonDealResponse
+from decorator.common import CommonDealResponse
 
 
 def My_Post(func):

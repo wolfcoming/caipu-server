@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app import views as app_views
+from usermodel import views as user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +29,9 @@ urlpatterns = [
     path(r'getGreensListByCategory/', app_views.getGreensListByCategory),
     path(r'qntoken/', app_views.qntoken),
     path(r'addCaipu/', app_views.addCaipu),
+
+
+
+    #用户模块
+    path(r'register/', user_views.register),
 ]

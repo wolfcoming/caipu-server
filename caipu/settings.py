@@ -126,21 +126,21 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # 让Django打印出在数据库中执行的语句
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django.db.backends': {
-            'handlers': ['console'],
-            'level': 'DEBUG' if DEBUG else 'INFO',
-        },
-    },
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#         },
+#     },
+#     'loggers': {
+#         'django.db.backends': {
+#             'handlers': ['console'],
+#             'level': 'DEBUG' if DEBUG else 'INFO',
+#         },
+#     },
+# }
 
 QINIU_ACCESS_KEY = '9SGCOiw4SnXTZj0QumvO7QMsAKdGiherr_DnHXpg'
 QINIU_SECRET_KEY = 'bjGukf4Spg2hn2KEdHPzCyx5g8ykkNQj1cdK30Wn'

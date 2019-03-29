@@ -9,6 +9,7 @@ import qiniu
 from caipu.settings import QINIU_ACCESS_KEY, QINIU_SECRET_KEY, QINIU_BUCKET_NAME
 from decorator.common import CommonDealResponse
 from decorator.mydecorator import My_Get, My_Post
+from usermodel.models import User
 
 
 @My_Get
@@ -46,6 +47,12 @@ def addCaipu(request):
         greens.makes = body['makes']
         greens.burden = body['burden']
         greens.img = body['img']
+
+        userid = body['userid']
+        user = User.objects.get(id=userid)
+        if (user != None):
+            greens.user = user
+
         greens.save()
         return CommonDealResponse.dealResult(True, "请求成功", "success")
     except Exception as e:

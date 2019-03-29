@@ -7,6 +7,7 @@ class CommonDealResponse:
     """
     统一处理返回值
     """
+
     def dealResult(isSuccess, result, message):
         res = {}
         if isSuccess:
@@ -15,12 +16,12 @@ class CommonDealResponse:
             res['message'] = message
         else:
             res['code'] = -1
-            res['data'] = "失败"
+            res['data'] = {}
             res['message'] = message
         return HttpResponse(json.dumps(res, ensure_ascii=False),
                             content_type='application/json; charset=utf-8')
 
-    def dealNoDateResult():
+    def dealNoDateResult(self):
         res = {}
         res['code'] = 2
         res['data'] = {}

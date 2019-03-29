@@ -52,8 +52,8 @@ class Greens(models.Model):
     makes = models.CharField(default="", max_length=10000, verbose_name="步骤", help_text="步骤")
     burden = models.CharField(default="", max_length=10000, verbose_name="用料", help_text="用料")
     img = models.CharField(default="", blank=True, null=True, max_length=200, verbose_name="封面图", help_text="封面图")
-    category = models.ManyToManyField(to=MenuCategory, verbose_name="类别", help_text="类别")
-    user = models.ForeignKey(User, on_delete=models.DO_NOTHING, default="", blank=True,
+    category = models.ManyToManyField(to=MenuCategory, blank=True, null=True, verbose_name="类别", help_text="类别")
+    user = models.ForeignKey(User, on_delete=models.SET_DEFAULT, default="", blank=True,
                              null=True, verbose_name="上传用户", help_text="上传用户")
 
     class Meta:

@@ -19,7 +19,7 @@ class BannerAdmin(admin.ModelAdmin):
 
 @admin.register(Greens)
 class GreensAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'brief', 'tips', 'views',
+    list_display = ('id', 'user', 'name', 'brief', 'tips', 'views',
                     'collect', 'makes', 'burden')
     # list_per_page设置每页显示多少条记录，默认是100条
     list_per_page = 10

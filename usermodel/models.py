@@ -19,6 +19,7 @@ class User(models.Model):
     )
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, null=False, verbose_name="用户id", help_text="用户id")
     name = models.CharField(default="", max_length=30, verbose_name="用户名", help_text="用户名")
+    pwd = models.CharField(default="", max_length=120, verbose_name="密码", help_text="密码")
     headimg = models.CharField(default="", max_length=100, null=True, blank=True, verbose_name="用户头像", help_text="用户头像")
     usertype = models.IntegerField(default=3, verbose_name="登录类型", help_text="登录类型")
     is_vip = models.BooleanField(default=False, null=True, blank=True, verbose_name="是否是vip", help_text="vip用户")
@@ -29,3 +30,13 @@ class User(models.Model):
 
     def __str__(self):
         return self.name
+
+    def toJson(self):
+        result = {}
+        result['id'] = str(self.id)
+        result['name'] = self.name
+        result['pwd'] = self.pwd
+        result['heading'] = self.headimg
+        result['usertype'] = self.usertype
+        result['is_vip'] = self.is_vip
+        return result

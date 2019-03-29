@@ -34,4 +34,5 @@ urlpatterns = [
 
     #用户模块
     path(r'register/', user_views.register),
+    path(r'login/', user_views.login),
 ]

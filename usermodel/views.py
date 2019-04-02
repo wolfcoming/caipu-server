@@ -1,5 +1,4 @@
 from django.db.models import Q
-from django.shortcuts import render
 
 # Create your views here.
 from decorator.common import CommonDealResponse
@@ -34,6 +33,8 @@ def register(request):
 @My_Post
 def login(request):
     try:
+        # import time
+        # time.sleep(18)
         params = request.POST
         name = params.get('name')
         registeruser = User.objects.filter(name=name)
@@ -46,6 +47,6 @@ def login(request):
                 return CommonDealResponse.dealResult(False, {}, "密码不正确")
             else:
                 finalResult = result[0]
-                return CommonDealResponse.dealResult(False, finalResult.toJson(), "登录成功")
+                return CommonDealResponse.dealResult(True, finalResult.toJson(), "登录成功")
     except Exception as e:
         return CommonDealResponse.dealResult(False, str(e), "failure")

@@ -74,6 +74,9 @@ class Greens(models.Model):
                 d[attr] = getattr(self, attr).strftime('%Y-%m-%d %H:%M:%S')
             elif isinstance(getattr(self, attr), datetime.date):
                 d[attr] = getattr(self, attr).strftime('%Y-%m-%d')
+            elif isinstance(getattr(self, attr), User):
+                user = getattr(self, attr)
+                d[attr] = user.toJson()
             else:
                 d[attr] = getattr(self, attr)
 

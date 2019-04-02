@@ -81,8 +81,8 @@ def getMenu(request):
     :return:
     """
     try:
-        import time
-        time.sleep(6)
+        # import time
+        # time.sleep(6)
         category_way = request.GET.get('category_way')
         menu_list = []
         if category_way:
@@ -186,33 +186,36 @@ def getGreensByid(request):
     :param request:
     :return:
     """
-    params = ""
-    if request.method == "GET":
-        params = request.GET
-    else:
-        params = request.POST
+    try:
+        params = ""
+        if request.method == "GET":
+            params = request.GET
+        else:
+            params = request.POST
 
-    id = params.get("id")
-    if id == None:
-        return CommonDealResponse.dealNoParamResult('id')
-    greens = models.Greens.objects.filter(id=id).first()
+        id = params.get("id")
+        if id == None:
+            return CommonDealResponse.dealNoParamResult('id')
+        greens = models.Greens.objects.filter(id=id).first()
 
-    # 更新浏览量
-    views = greens.views
-    views += 1
-    greens.views = views
-    greens.save()
+        # 更新浏览量
+        views = greens.views
+        views += 1
+        greens.views = views
+        greens.save()
 
-    if greens:
-        greensJson = json.loads(greens.toJSON())
-        # 获取该菜的所属的类别
-        category = []
-        for categoryItem in greens.category.all():
-            category.append(categoryItem.id)
-        greensJson['category'] = category
-        return CommonDealResponse.dealResult(True, greensJson, "成功")
-    else:
-        return CommonDealResponse.dealNoDateResult()
+        if greens:
+            greensJson = json.loads(greens.toJSON())
+            # 获取该菜的所属的类别
+            category = []
+            for categoryItem in greens.category.all():
+                category.append(categoryItem.id)
+            greensJson['category'] = category
+            return CommonDealResponse.dealResult(True, greensJson, "成功")
+        else:
+            return CommonDealResponse.dealNoDateResult()
+    except Exception as e:
+        return CommonDealResponse.dealResult(False, {}, "fail")
 
 
 def getBannerData(request):

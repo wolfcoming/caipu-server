@@ -42,7 +42,9 @@ def login(request):
             return CommonDealResponse.dealResult(False, {}, "该用户尚未注册")
         else:
             pwd = params.get('pwd')
-            result = User.objects.filter(Q(name=name) and Q(pwd=pwd))
+            result = User.objects.filter(Q(name=name) & Q(pwd=pwd))
+            # result = User.objects.filter(Q(name=name))
+            # result = result.filter(Q(pwd=pwd))
             if len(result) == 0:
                 return CommonDealResponse.dealResult(False, {}, "密码不正确")
             else:

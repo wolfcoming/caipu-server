@@ -7,9 +7,10 @@ from app.models import Greens, Banner
 @admin.register(MenuCategory)
 class MenuAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'brief', 'category_level', 'category_way',
-                    'parent_category_id', 'add_time', 'islast_level')
+                    'parent_category_id', 'imgurl', 'add_time', 'islast_level')
+    list_editable = ['imgurl']
     # list_per_page设置每页显示多少条记录，默认是100条
-    list_per_page = 1150
+    list_per_page = 50
 
 
 @admin.register(Banner)

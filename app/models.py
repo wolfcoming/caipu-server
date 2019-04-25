@@ -31,6 +31,9 @@ class MenuCategory(models.Model):
                                         related_name="sub_cat", on_delete=models.SET_NULL)
     add_time = models.DateTimeField(default=datetime.now, null=True, blank=True, verbose_name="添加时间")
     islast_level = models.BooleanField(default=False, verbose_name="是否是最后级别", help_text="是否是最后级别")
+    imgurl = models.CharField(default="", null=True, blank=True, max_length=100, verbose_name="图片地址", help_text="图片地址")
+    extralurl = models.CharField(default="", null=True, blank=True, max_length=100, verbose_name="分类下的菜谱列表地址",
+                                 help_text="额外地址")
 
     class Meta:
         verbose_name = "菜单类别"
@@ -44,7 +47,7 @@ class Greens(models.Model):
     """
     菜
     """
-    name = models.CharField(default="", max_length=20, verbose_name="菜名", help_text="菜名")
+    name = models.CharField(default="", max_length=100, verbose_name="菜名", help_text="菜名")
     brief = models.CharField(default="", max_length=200, verbose_name="简短介绍", help_text="简短介绍")  # 简单介绍
     tips = models.CharField(default="", max_length=200, verbose_name="小贴士", help_text="小贴士")
     views = models.IntegerField(default=0, verbose_name="浏览量", help_text="浏览量")

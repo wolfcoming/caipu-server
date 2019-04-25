@@ -88,9 +88,10 @@ def getMenu(request):
         if category_way:
             menu_list = models.MenuCategory.objects.filter(category_way=category_way).values('id', 'name',
                                                                                              'category_level',
-                                                                                             'parent_category')
+                                                                                             'parent_category',
+                                                                                             'imgurl')
         else:
-            menu_list = models.MenuCategory.objects.values('id', 'name', 'category_level', 'parent_category')
+            menu_list = models.MenuCategory.objects.values('id', 'name', 'category_level', 'parent_category', 'imgurl')
         menu_list_json = json.dumps(list(menu_list), ensure_ascii=False, cls=DateEncoder)
         print(menu_list_json)
         return CommonDealResponse.dealResult(True, json.loads(menu_list_json), "成功")
@@ -107,7 +108,7 @@ def getMenu(request):
 @My_Get
 def getGreensListByCategory(request):
     """
-    获取菜单下的所有菜品
+    获取菜单下的所有菜品 (废弃，不要硬关联）
     :param request:
     :return:
     """
@@ -151,8 +152,8 @@ def search(request):
             return CommonDealResponse.dealNoParamResult("参数缺失")
         else:
             templist = models.Greens.objects.defer("brief", "tips", "makes") \
-                .filter(name__contains=name).all().order_by(
-                'views')
+                .filter(name__contains=name).all()\
+                # .order_by( '-views')
             paginator = Paginator(templist, pageSize)
             try:
                 templist = paginator.page(pageNumber).object_list

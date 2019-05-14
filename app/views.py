@@ -152,7 +152,7 @@ def search(request):
             return CommonDealResponse.dealNoParamResult("参数缺失")
         else:
             templist = models.Greens.objects.defer("brief", "tips", "makes") \
-                .filter(name__contains=name).all()\
+                .filter(name__contains=name).all() \
                 # .order_by( '-views')
             paginator = Paginator(templist, pageSize)
             try:
@@ -243,3 +243,5 @@ class DateEncoder(json.JSONEncoder):
             return o.strftime("%Y-%m-%d")
         else:
             return json.JSONDecoder.default(self, o)
+
+

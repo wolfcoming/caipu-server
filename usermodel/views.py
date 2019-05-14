@@ -1,10 +1,16 @@
+import threading
+
 from django.db.models import Q
 
 # Create your views here.
+from django.http import HttpResponse
+from django.shortcuts import render
+
 from decorator.common import CommonDealResponse
 from decorator.mydecorator import My_Post
 from usermodel.models import User
 
+from dwebsocket.decorators import accept_websocket
 
 @My_Post
 def register(request):
@@ -52,3 +58,14 @@ def login(request):
                 return CommonDealResponse.dealResult(True, finalResult.toJson(), "登录成功")
     except Exception as e:
         return CommonDealResponse.dealResult(False, str(e), "failure")
+
+
+@accept_websocket
+def websocketTest(request):
+    if not request.is_websocket():  # 判断是不是websocket连接
+        return HttpResponse(" 只支持websocket")
+    else:
+        print(1)
+        request.websocket.send('下载完成'.encode('utf-8'))
+
+

@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'usermodel',
-    'dwebsocket',
+    # 'dwebsocket',
+    'channels',
+    'table',
+    'mm94'
 ]
 
 MIDDLEWARE = [
@@ -50,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # 'dwebsocket.middleware.WebSocketMiddleware'  # 为所有的URL提供websocket，如果只是单独的视图需要可以不选
 ]
-WEBSOCKET_ACCEPT_ALL=True   # 可以允许每一个单独的视图实用websocket
+WEBSOCKET_ACCEPT_ALL = True  # 可以允许每一个单独的视图实用websocket
 
 ROOT_URLCONF = 'caipu.urls'
 
@@ -157,3 +160,19 @@ MEDIA_URL = PREFIX_URL + QINIU_BUCKET_DOMAIN + '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_FILE_STORAGE = 'qiniustorage.backends.QiniuMediaStorage'
+
+ASGI_APPLICATION = "caipu.routing.application"
+
+# WebSocket
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
+
+
+
+

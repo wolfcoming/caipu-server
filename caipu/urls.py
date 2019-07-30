@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from app import views as app_views
 from usermodel import views as user_views
-
+from mm94 import views as mm
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', app_views.index),
@@ -30,10 +30,19 @@ urlpatterns = [
     path(r'qntoken/', app_views.qntoken),
     path(r'addCaipu/', app_views.addCaipu),
 
+    path(r'getXmlContentByName/', app_views.getXmlContentByName),
+    path(r'getXmlContentByName2/', app_views.getXmlContentByName2),
+
+
 
 
     #用户模块
     path(r'register/', user_views.register),
     path(r'login/', user_views.login),
     path(r'websocketTest/', user_views.websocketTest),
+
+
+    #94mm接口
+    path(r'mm/', mm.mmindex)
+
 ]

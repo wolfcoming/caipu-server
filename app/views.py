@@ -245,3 +245,52 @@ class DateEncoder(json.JSONEncoder):
             return json.JSONDecoder.default(self, o)
 
 
+def getXmlContentByName(request):
+    """
+    根据文件名 来读取文件内容，方便客户端调试代码
+    :param request:
+    :return:
+    """
+    try:
+        filePath = "/Users/yangqing/Develop/android/projects/bjyh/normal/bjyh2/eMPView/src/main/assets/test/"
+        params = ""
+        if request.method == "GET":
+            params = request.GET
+        else:
+            params = request.POST
+        name = params.get("name")
+        if name == None:
+            return HttpResponse("name is none")
+        f = open(filePath + name + ".xml")
+        content = f.read()
+        return HttpResponse(content)
+    except Exception as e:
+        return HttpResponse("can not open file")
+
+
+def getXmlContentByName2(request):
+    """
+    根据文件名 来读取文件内容，方便客户端调试代码
+    :param request:
+    :return:
+    """
+    try:
+        filePath = "/Users/yangqing/Develop/android/projects/bjyh/zhengshi/new_android_studio/eMPView/src/main/assets/test/"
+        params = ""
+        suffix = ""
+        if request.method == "GET":
+            params = request.GET
+        else:
+            params = request.POST
+        name = params.get("name")
+        if name == None:
+            return HttpResponse("name is none")
+        if ".html" in name:
+            suffix = ".html"
+        else:
+            suffix = ".xml"
+        f = open(filePath + name + suffix)
+        content = f.read()
+        return HttpResponse(content)
+    except Exception as e:
+        return HttpResponse("can not open file")

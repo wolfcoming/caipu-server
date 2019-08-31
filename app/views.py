@@ -244,7 +244,7 @@ class DateEncoder(json.JSONEncoder):
         else:
             return json.JSONDecoder.default(self, o)
 
-
+# 北京银行测试
 def getXmlContentByName(request):
     """
     根据文件名 来读取文件内容，方便客户端调试代码
@@ -252,7 +252,7 @@ def getXmlContentByName(request):
     :return:
     """
     try:
-        filePath = "/Users/yangqing/Develop/android/projects/bjyh/normal/bjyh2/eMPView/src/main/assets/test/"
+        filePath = "/Users/yangqing/Develop/android/projects/bjyh/normal/bjyh2_Q/eMPView/src/main/assets/test/"
         params = ""
         if request.method == "GET":
             params = request.GET
@@ -267,7 +267,7 @@ def getXmlContentByName(request):
     except Exception as e:
         return HttpResponse("can not open file")
 
-
+# 北京银行测试
 def getXmlContentByName2(request):
     """
     根据文件名 来读取文件内容，方便客户端调试代码

@@ -43,6 +43,7 @@ urlpatterns = [
 
 
     #94mm接口
-    path(r'mm/', mm.mmindex)
+    path(r'mm/', mm.mmindex),
+    path(r'getMmList/', mm.getMMList)
 
 ]

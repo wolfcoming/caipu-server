@@ -143,7 +143,7 @@ def search(request):
     """
     try:
         # import time
-        # time.sleep(3)
+        # time.sleep(30)
         pageSize = request.GET.get("pageSize")
         pageNumber = request.GET.get("pageNumber")
         name = request.GET.get("name")
@@ -244,6 +244,7 @@ class DateEncoder(json.JSONEncoder):
         else:
             return json.JSONDecoder.default(self, o)
 
+
 # 北京银行测试
 def getXmlContentByName(request):
     """
@@ -267,6 +268,7 @@ def getXmlContentByName(request):
     except Exception as e:
         return HttpResponse("can not open file")
 
+
 # 北京银行测试
 def getXmlContentByName2(request):
     """
@@ -275,7 +277,7 @@ def getXmlContentByName2(request):
     :return:
     """
     try:
-        filePath = "/Users/yangqing/Develop/android/projects/bjyh/zhengshi/new_android_studio/eMPView/src/main/assets/test/"
+        filePath = "/Users/yangqing/Develop/android/projects/bjyh/normal/bob/eMPView/src/main/assets/test/"
         params = ""
         suffix = ""
         if request.method == "GET":
@@ -294,3 +296,43 @@ def getXmlContentByName2(request):
         return HttpResponse(content)
     except Exception as e:
         return HttpResponse("can not open file")
+
+
+# 测试接口
+def testApi(request):
+    token = request.META.get("HTTP_TOKEN")
+    print("testApi执行")
+    if token == None or token == "null":
+        return CommonDealResponse.dealResult(False, {}, "token无效")
+    else:
+        return CommonDealResponse.dealResult(True, "最新的返回数据", "成功")
+
+
+# 测试接口2 为了证明dio.lock加锁之后，其他网络请求会被暂停
+def testApi2(request):
+    token = request.META.get("HTTP_TOKEN")
+    print("get token")
+    print(token)
+    if token == None or token == "null":
+        return CommonDealResponse.dealResult(False, {}, "token无效")
+    else:
+        return CommonDealResponse.dealResult(True, "testApi2成功获取测试数据", "成功")
+
+
+# 模拟获取token
+def getTestToken(request):
+    import time
+    # 模拟网络卡顿五秒
+    # time.sleep(5)
+    print("getTestToken执行")
+    return HttpResponse("111111")
+
+
+@My_Post
+def testPost(request):
+    name = request.POST.get('name')
+    pwd = request.POST.get('password')
+    strjson = {'name': name, 'pwd': pwd}
+    if name == None or pwd == None:
+        return CommonDealResponse.dealNoParamResult("参数缺失")
+    return CommonDealResponse.dealResult(True, strjson, "成功")

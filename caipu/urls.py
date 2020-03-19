@@ -18,6 +18,7 @@ from django.urls import path
 from app import views as app_views
 from usermodel import views as user_views
 from mm94 import views as mm
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', app_views.index),
@@ -29,21 +30,23 @@ urlpatterns = [
     path(r'getGreensListByCategory/', app_views.getGreensListByCategory),
     path(r'qntoken/', app_views.qntoken),
     path(r'addCaipu/', app_views.addCaipu),
+    path(r'testApi/', app_views.testApi),
+    path(r'testApi2/', app_views.testApi2),
+    path(r'getTestToken/', app_views.getTestToken),
 
     path(r'getXmlContentByName/', app_views.getXmlContentByName),
     path(r'getXmlContentByName2/', app_views.getXmlContentByName2),
 
-
-
-
-    #用户模块
+    # 用户模块
     path(r'register/', user_views.register),
     path(r'login/', user_views.login),
     path(r'websocketTest/', user_views.websocketTest),
 
-
-    #94mm接口
+    # 94mm接口
     path(r'mm/', mm.mmindex),
-    path(r'getMmList/', mm.getMMList)
+    path(r'getMmList/', mm.getMMList),
+
+    # 测试接口
+    path(r'testPost/', app_views.testPost)
 
 ]
